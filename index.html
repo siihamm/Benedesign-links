@@ -1,0 +1,63 @@
+<!DOCTYPE html>  
+<html lang="fr">  
+<head>          
+    <meta charset="UTF-8">          
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">          
+    <title>Benedesign | Linktree</title>          
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">          
+    <link rel="stylesheet" href="style.css">  
+</head>  
+<body>          
+    <!-- Écran de chargement -->          
+    <div id="loading-screen" class="loading-screen">                  
+        <div class="loading-logo">                          
+            <img src="bene-design-logo.png" alt="Benedesign Logo" class="loading-image">                  
+        </div>          
+    </div>           
+    <div class="iphone-frame">                  
+        <div class="iphone-screen">                          
+            <div class="container">                                  
+                <div class="profile">                                          
+                    <div class="logo-container">                                                  
+                        <img src="bene-design-logo.png" alt="Benedesign Logo" class="logo-image">                                          
+                    </div>                                          
+                    <h1>Benedesign</h1>                                          
+                    <p class="subtitle">Graphic Designer</p>                                  
+                </div>                                                   
+                <div class="links">                                          
+                    <a href="https://www.instagram.com/bene.design_/" class="link instagram" target="_blank" onclick="showLoader(event)">                                                  
+                        <i class="fab fa-instagram"></i>                                                  
+                        Instagram                                          
+                    </a>                                                               
+                    <a href="https://www.tiktok.com/@bene.design_?_t=ZN-8wIDXHLuWxT&_r=1" class="link tiktok" target="_blank" onclick="showLoader(event)">                                                  
+                        <i class="fab fa-tiktok"></i>                                                  
+                        TikTok                                          
+                    </a>                                                               
+                    <a href="https://snapchat.com/t/Ndbb4G30" class="link snapchat" target="_blank" onclick="showLoader(event)">                                                  
+                        <i class="fab fa-snapchat"></i>                                                  
+                        Snapchat                                          
+                    </a>                                                               
+                    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="link whatsapp" target="_blank" onclick="showLoader(event)">                                                  
+                        <i class="fab fa-whatsapp"></i>                                                  
+                        WhatsApp                                          
+                    </a>                                  
+                </div>                          
+            </div>                  
+        </div>          
+    </div>           
+    <script>                  
+        function showLoader(event) {                          
+            // Empêcher le comportement par défaut du lien                          
+            event.preventDefault();                                       
+            // Récupérer l'URL du lien                          
+            const url = event.currentTarget.href;                                       
+            // Afficher l'écran de chargement                          
+            document.getElementById('loading-screen').classList.add('show');                                       
+            // Rediriger vers l'URL après un délai                          
+            setTimeout(function() {                                  
+                window.location.href = url;                          
+            }, 1500); // 1.5 secondes pour voir l'animation                  
+        }          
+    </script>  
+</body>  
+</html>

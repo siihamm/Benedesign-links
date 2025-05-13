@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Écran de chargement */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.95) 0%, rgba(221, 160, 221, 0.95) 100%);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loading-screen.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animation spinner en arc */
+.loading-logo {
+    position: relative;
+    width: 54px;
+    height: 54px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Arc spinner animé avec couleur violet clair #DDA0DD */
+.loading-logo::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #DDA0DD; /* Violet clair */
+    border-right-color: #DDA0DD; /* Même couleur pour cohérence */
+    animation: spin-arc 1.2s ease-in-out infinite;
+}
+
+/* Animation du logo lui-même */
+.loading-image {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    animation: spin-logo 3s linear infinite; /* Rotation plus lente que l'arc */
+}
+
+@keyframes spin-arc {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin-logo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Cadre iPhone */
+.iphone-frame {
+    width: 320px;
+    height: 640px;
+    background: white;
+    border-radius: 50px;
+    padding: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.iphone-screen {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #87CEEB 0%, #DDA0DD 100%);
+    border-radius: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Effet texturé supprimé */
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 30px 20px;
+    overflow-y: auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.profile {
+    margin-bottom: 50px;
+}
+
+.logo-container {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    /* Contour fin blanc pour la photo de profil */
+    border: 2px solid white;
+}
+
+/* Effet d'agrandissement pour la bulle logo */
+.logo-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.logo-container:active {
+    transform: scale(0.95);
+}
+
+.logo-image {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+
+h1 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    margin-bottom: 45px;
+    font-weight: 400;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Style de base pour les liens */
+.link {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Effet d'agrandissement au survol */
+.link:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    background-color: white;
+}
+
+/* Effet au clic */
+.link:active {
+    transform: scale(0.95);
+}
+
+.link i {
+    font-size: 18px;
+    width: 20px;
+}
+
+/* Couleurs des icônes */
+.link.instagram i {
+    color: #E4405F;
+}
+
+.link.tiktok i {
+    color: #000000;
+}
+
+.link.snapchat i {
+    color: #FFFC00;
+    text-shadow: 0 0 1px rgba(0,0,0,0.3);
+}
+
+.link.whatsapp i {
+    color: #25D366;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .iphone-frame {
+        width: 100%;
+        max-width: 320px;
+        height: 90vh;
+        max-height: 640px;
+    }
+}
